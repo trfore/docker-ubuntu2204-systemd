@@ -1,6 +1,6 @@
 # docker-ubuntu2204-systemd
 
-![build](https://github.com/trfore/docker-ubuntu2204-systemd/workflows/build/badge.svg?branch=main&event=push)
+[![build](https://github.com/trfore/docker-ubuntu2204-systemd/workflows/build/badge.svg?branch=main&event=push)](https://github.com/trfore/docker-ubuntu2204-systemd/actions/workflows/build.yml)
 
 A minimal systemd enabled Ubuntu 22.04 Docker image for testing Ansible roles with Molecule.
 
