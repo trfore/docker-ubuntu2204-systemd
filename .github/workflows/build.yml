@@ -1,0 +1,59 @@
+name: build
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/build.yml'
+      - 'Dockerfile'
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 2 * * 0'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v3
+
+      - name: build a test image
+        run: docker build -t test-image .
+
+      - name: create a test container
+        run: >-
+          docker run --name test-container --detach --privileged
+          --volume /sys/fs/cgroup:/sys/fs/cgroup:ro
+          --tmpfs /run --tmpfs /tmp
+          --cgroupns host
+          test-image
+
+      - name: check if container is running
+        run: >-
+          timeout 20s bash -c 'until [ "$(docker inspect -f {{.State.Running}} test-container)" == "true" ]; do sleep 2; done'
+
+      - name: test systemctl
+        run: docker exec --tty test-container env TERM=xterm systemctl --version
+
+  release:
+    needs: [test]
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: set up qemu
+        uses: docker/setup-qemu-action@v2
+
+      - name: set up docker buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: login to docker hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: build and push image
+        uses: docker/build-push-action@v4
+        with:
+          push: true
+          tags: ${{ github.repository }}:latest
