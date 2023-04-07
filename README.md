@@ -1,8 +1,8 @@
-# template-docker-image
+# docker-ubuntu2204-systemd
 
-![build](https://github.com/trfore/template-docker-image/workflows/build/badge.svg?branch=main&event=push)
+![build](https://github.com/trfore/docker-ubuntu2204-systemd/workflows/build/badge.svg?branch=main&event=push)
 
-A minimal systemd enabled {DISTRO} {DISTRO_VERSION} Docker image for testing Ansible roles with Molecule.
+A minimal systemd enabled Ubuntu 22.04 Docker image for testing Ansible roles with Molecule.
 
 NOTE: This image does NOT contain Ansible tooling, e.g. `ansible-core` or `yamllint`. Thus, the use case is as target host for Ansible controllers or within the Molecule `create`/`converge`/`test` cycle.
 
@@ -11,9 +11,9 @@ NOTE: This image does NOT contain Ansible tooling, e.g. `ansible-core` or `yamll
 This image is built on Docker Hub automatically any time the upstream OS image is rebuilt, and any time a commit is made or merged to the `main` branch. But if you need to build the image on your own locally, do the following:
 
 1. Install [docker]
-2. Clone the repo, `git clone https://github.com/trfore/template-docker-image.git`
+2. Clone the repo, `git clone https://github.com/trfore/docker-ubuntu2204-systemd.git`
 3. `cd` into the directory
-4. Run `docker build --tag trfore/template-docker-image .`
+4. Run `docker build --tag trfore/docker-ubuntu2204-systemd .`
 
 ## How to Use
 
@@ -38,8 +38,8 @@ platforms:
 ### Interactively
 
 1. Install [docker]
-2. Build an image locally (see above) or pull from Docker Hub: `docker pull trfore/docker-{DISTRO}-systemd:latest`
-3. Run a container from the image: `docker run -it --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro  trfore/docker-{DISTRO}-systemd:latest /bin/bash`
+2. Build an image locally (see above) or pull from Docker Hub: `docker pull trfore/docker-ubuntu2204-systemd:latest`
+3. Run a container from the image: `docker run -it --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro  trfore/docker-ubuntu2204-systemd:latest /bin/bash`
 
 ## Additional Images
 
