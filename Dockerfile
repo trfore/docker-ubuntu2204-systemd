@@ -1,7 +1,5 @@
-FROM ubuntu:22.04
-LABEL org.label-schema.author="Taylor Fore (GitHub @trfore)" \
-    org.label-schema.name="docker-ubuntu2204-systemd" \ 
-    org.label-schema.vcs-url="https://github.com/trfore/docker-ubuntu2204-systemd"
+ARG BASEOS_DIGEST
+FROM docker.io/library/ubuntu:22.04${BASEOS_DIGEST:-}
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
