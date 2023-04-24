@@ -4,10 +4,10 @@ on:
   push:
     branches: [main]
     paths:
-      - 'Dockerfile'
-      - 'baseos_digest'
+      - "Dockerfile"
+      - "baseos_digest"
   pull_request:
-    branches: ['*']
+    branches: ["*"]
 
 env:
   IMAGE_NAME: ${{ github.repository }}
