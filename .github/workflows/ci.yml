@@ -1,0 +1,13 @@
+name: CI
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "Dockerfile"
+      - "baseos_digest"
+  pull_request:
+
+jobs:
+  test_build:
+    uses: trfore/docker-image/.github/workflows/test_systemd.yml@main # remote repo
