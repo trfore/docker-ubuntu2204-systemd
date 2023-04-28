@@ -53,7 +53,7 @@ platforms:
 
 ## Maintainers
 
-[Taylor Fore](https://github.com/trfore)
+Taylor Fore (https://github.com/trfore)
 
 ## Acknowledgements
 
