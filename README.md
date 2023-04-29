@@ -30,7 +30,7 @@ platforms:
       - /run
       - /tmp
     volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+      - /sys/fs/cgroup:/sys/fs/cgroup:rw
     cgroupns_mode: host
     privileged: true
     pre_build_image: true
@@ -40,7 +40,8 @@ platforms:
 
 1. Install [docker]
 2. Build an image locally (see above) or pull from Docker Hub: `docker pull trfore/docker-ubuntu2204-systemd:latest`
-3. Run a container from the image: `docker run -it --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro  trfore/docker-ubuntu2204-systemd:latest /bin/bash`
+3. Run a container from the image: `docker run -d -it --name ubuntu2204-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro trfore/docker-ubuntu2204-systemd:latest`
+4. Use it, ex: `docker exec -it ubuntu2204-systemd /bin/bash`
 
 ## Additional Images
 
@@ -49,6 +50,7 @@ platforms:
 | [CentOS Stream 8][centos-stream] | [docker-centos8-systemd]    | [trfore/docker-centos8-systemd]    |
 | [Debian 10][debian]              | [docker-debian10-systemd]   | [trfore/docker-debian10-systemd]   |
 | [Debian 11][debian]              | [docker-debian11-systemd]   | [trfore/docker-debian11-systemd]   |
+| [Debian 12][debian]              | [docker-debian12-systemd]   | [trfore/docker-debian12-systemd]   |
 | [Ubuntu 20.04][ubuntu]           | [docker-ubuntu2004-systemd] | [trfore/docker-ubuntu2004-systemd] |
 | [Ubuntu 22.04][ubuntu]           | [docker-ubuntu2204-systemd] | [trfore/docker-ubuntu2204-systemd] |
 
@@ -78,6 +80,7 @@ Inspired by Jeff Geerling's ([@geerlingguy](https://github.com/geerlingguy)), Ce
 [docker-centos8-systemd]: https://github.com/trfore/docker-centos8-systemd/blob/main/Dockerfile
 [docker-debian10-systemd]: https://github.com/trfore/docker-debian10-systemd/blob/main/Dockerfile
 [docker-debian11-systemd]: https://github.com/trfore/docker-debian11-systemd/blob/main/Dockerfile
+[docker-debian12-systemd]: https://github.com/trfore/docker-debian11-systemd/blob/main/Dockerfile
 [docker-ubuntu2004-systemd]: https://github.com/trfore/docker-ubuntu2004-systemd/blob/main/Dockerfile
 [docker-ubuntu2204-systemd]: https://github.com/trfore/docker-ubuntu2204-systemd/blob/main/Dockerfile
 [trfore/docker-centos8-systemd]: https://hub.docker.com/r/trfore/docker-centos8-systemd
