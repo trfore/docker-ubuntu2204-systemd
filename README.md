@@ -86,6 +86,7 @@ Inspired by Jeff Geerling's ([@geerlingguy](https://github.com/geerlingguy)), Ce
 [trfore/docker-centos8-systemd]: https://hub.docker.com/r/trfore/docker-centos8-systemd
 [trfore/docker-debian10-systemd]: https://hub.docker.com/r/trfore/docker-debian10-systemd
 [trfore/docker-debian11-systemd]: https://hub.docker.com/r/trfore/docker-debian11-systemd
+[trfore/docker-debian12-systemd]: https://hub.docker.com/r/trfore/docker-debian12-systemd
 [trfore/docker-ubuntu2004-systemd]: https://hub.docker.com/r/trfore/docker-ubuntu2004-systemd
 [trfore/docker-ubuntu2204-systemd]: https://hub.docker.com/r/trfore/docker-ubuntu2204-systemd
 [github runner - ubuntu 20.04]: https://github.com/actions/runner-images/blob/main/images/linux/Ubuntu2004-Readme.md
