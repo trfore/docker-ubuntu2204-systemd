@@ -1,1 +1,1 @@
-{ "baseos": { "name": "docker.io/library/ubuntu", "digest": "sha256:e6173d4dc55e76b87c4af8db8821b1feae4146dd47341e4d431118c7dd060a74", "layer": "sha256:29202e855b2021a2d7f92800619ed5f5e8ac402e267cfbb3d29a791feb13c1ee", "created": "2024-01-11T17:08:11.824691008Z" } }
+{ "baseos": { "name": "docker.io/library/ubuntu", "digest": "sha256:e9569c25505f33ff72e88b2990887c9dcf230f23259da296eb814fc2b41af999", "layer": "sha256:57c139bbda7eb92a286d974aa8fef81acf1a8cbc742242619252c13b196ab499", "created": "2024-01-25T17:54:41.023950033Z" } }
