@@ -46,8 +46,21 @@ platforms:
 
 1. Install [docker]
 2. Build an image locally (see above) or pull from Docker Hub: `docker pull trfore/docker-ubuntu2204-systemd:latest`
-3. Run a container from the image: `docker run -d -it --name ubuntu2204-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro trfore/docker-ubuntu2204-systemd:latest`
+3. **On Docker with Cgroup V1 (e.g. Ubuntu 20.04)**, run a container from the image:
+
+```sh
+docker run -d -it --name ubuntu2204-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro trfore/docker-ubuntu2204-systemd:latest
+```
+
+3. **On Docker with Cgroup V2 (e.g. Ubuntu 22.04)**, run a container from the image:
+
+```sh
+docker run -d -it --name ubuntu2204-systemd --privileged --cgroupns=host --tmpfs=/run --tmpfs=/tmp --volume=/sys/fs/cgroup:/sys/fs/cgroup:rw trfore/docker-ubuntu2204-systemd:latest
+```
+
 4. Use it, ex: `docker exec -it ubuntu2204-systemd /bin/bash`
+
+## Systemd with Cgroup V1 or V2
 
 ## Additional Images
 
