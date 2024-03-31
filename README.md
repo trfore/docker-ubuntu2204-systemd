@@ -65,7 +65,7 @@ docker run -d -it --name ubuntu2204-systemd --privileged --cgroupns=host --tmpfs
 - Podman defaults to running containers in systemd mode, `--systemd=true`, and will mount the required tmpfs and cgroup filesystem. See [Podman Docs: Commands `run --systemd`] for details.
 
 ```sh
-podman run -d -it --name debian12-systemd docker.io/trfore/docker-debian12-systemd:latest
+podman run -d -it --name ubuntu2204-systemd docker.io/trfore/docker-ubuntu2204-systemd:latest
 ```
 
 ## Additional Images
